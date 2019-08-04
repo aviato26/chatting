@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+
+/*
+  66ffd9
+  this color green with a light shade of pink might look good for background
+  got the example from awwwards.com/magpie app
+*/
+
+body {
+  background-image: url(background.jpg);
+  background-size: cover;
+}
+
+.talkbox {
+  width: 80%;
+  height: 300px;
+  margin: 10% auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  text-align: center;
+  background-image: linear-gradient(42deg, #330066 45%, #FF0FF8 50%, #330066 45%);
+  border-radius: 20px;
+}
+
+.talkbox:hover {
+  background-color: #b918bd;
+}
+
+.grid-container, .privateRoom, input{
+  width: 60%;
+  height: 20%;
+  margin: auto;
+}
+
+.privateRoomButtons{
+  width: 30%;
+  margin: auto;
+}
+
+.talkbox:active {
+  background-color: #a918bd;
+  box-shadow: 0 5px #222;
+  transform: translateY(4px);
+}
+
+.talking {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  width: 100%;
+  height: 100%
+}
+
+.acceptButton {
+  width: 20%;
+  height: 10%;
+  margin: 40px;
+}
+
+.talk {
+  display: none
+}
+
+.intro {
+  color: white
+}
+
+.flex-container {
+  overflow: scroll;
+}
+
+.glow {
+  color: #fff;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  font-family: Bradley Hand, cursive
+}
+
+li {
+  list-style: none
+}
+
+ul {
+  color: white;
+  padding: 0
+}
+
+.active {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.grid-container {
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto auto;
+  text-align: center;
+  width: 100vh
+}
+
+.grid-container .login{
+  grid-template-rows: max-content
+}
+
+.victory {
+  position: relative;
+  font-family: 'Permanent Marker', cursive;
+  font-variant:small-caps;
+  font-size: 180px;
+  -webkit-transform: skew(-15deg,-15deg);
+  padding-left: 80px;
+  background-image: -webkit-linear-gradient(#FF0FF8 0%,  #F9F9F7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  -webkit-filter: drop-shadow(2px 2px 20px #f008b7);
+}
+
+.victory-v {
+  position: relative;
+  background-image: -webkit-linear-gradient(#FF0FF8 0%,  #F9F9F7 100%);
+  -webkit-background-clip: text;
+  padding-right: 18px;
+  margin-right: -18px;
+}
+
+.signupInputs {
+  margin: 1.3em;
+}
+
+.signupInputs input {
+  height: 30px;
+  border-radius: 10px;
+  width: 70%;
+  font-size: 1em
+}
+
+button {
+  border-radius: 10px;
+  margin: 20px 0;
+  width: 50%;
+  height: 50px;
+  background-color: white;
+  font-size: 1.2em;
+  color: red
+}
+
+.file {
+  padding-left: 20%;
+  color: white
+}
+
+img {
+  width: 60%;
+  height: 50%;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.talkbox p {
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.6em;
+  border-bottom: 1px solid white;
+  margin: auto;
+}
+
+.form {
+  border: 5px solid white;
+  border-radius: 40px;
+  margin: auto;
+  background-color: rebeccapurple;
+  width: 90%;
+  height: 100%
+}
+
+.loginForm input{
+  display: block;
+  margin: 10% auto;
+  border-radius: 30px;
+  width: 50%;
+  height: 40px;
+  font-size: 1em
+}
+
+.loginForm {
+  border: 5px solid white;
+  border-radius: 20px;
+  height: 70%;
+  width: 90%;
+  background-color: rebeccapurple;
+  margin: 10% auto
+}
+
+@media only screen and (min-width: 768px) {
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .talkbox {
+    width: 30%
+  }
+
+  .loginForm {
+    width: 50%;
+  }
+
+  .form {
+    width: 50%
+  }
+
+  .grid-container, .privateRoom, input{
+    width: 30%;
+    height: 20%;
+    margin: auto;
+  }
+
+  .privateRoomButtons{
+    width: 20%;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .grid-container {
+    /*background-image: url(smallbackground.jpg);*/
+    grid-template-rows: auto auto auto;
+    width: 100%;
+    height: 100vh
+  }
+
+  .signup {
+    align-content: baseline
+  }
+
+  .victory{
+    font-size: 4em;
+    padding-left: 0;
+    margin: 30px 0
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .form {
+    height: 90%
+  }
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
