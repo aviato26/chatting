@@ -26,14 +26,12 @@ class Home extends React.Component{
 
     let options = {
       enableHighAccuracy: false,
-      timeout: 500000
+      timeout: 50000
     }
 
     if(sessionStorage.id){
 
-      this.props.socket.emit('setuserid', {
-        id: sessionStorage.id
-      })
+      this.props.socket.send(JSON.stringify({id: sessionStorage.id}))
 
       location = navigator.geolocation.watchPosition((pos) => {
         fetch('/userData', {
@@ -80,7 +78,7 @@ class Home extends React.Component{
     // must check for state text or will emit to socket multiple times
     if(snapshot !== null){
       // must use once on socket instead of on or the messages will emit several times
-      this.props.socket.once('converse', (data) => {
+      this.props.socket.send('message', (data) => {
         this.setState({
           chatWith: data.greet
         })
@@ -90,7 +88,7 @@ class Home extends React.Component{
         })
       })
 
-      this.props.socket.once('accepted', (data) => {
+      this.props.socket.send('accepted', (data) => {
         this.setState({
           switchToChat: data.answer
         })
@@ -128,7 +126,7 @@ activeTalk = (e) => {
     console.log(res)
     sessionStorage.interaction = res[0].id;
     sessionStorage.talkingTo = textContent;
-    this.props.socket.emit('greet', {
+    this.props.socket.send('greet', {
       chatWith: sessionStorage.interaction,
       id: sessionStorage.id,
       talkingTo: sessionStorage.name
@@ -143,7 +141,7 @@ goToChatRoom = () => {
   this.setState({
     switchToChat: true
   })
-  this.props.socket.emit('accepted', {
+  this.props.socket.send('accepted', {
     answer: true,
     sendTo: sessionStorage.interaction
   })

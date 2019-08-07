@@ -22,11 +22,9 @@ let GetUser = (e) => {
           })
         })
         .then(data => {
-          console.log(data)
-    //      return data.json()
+          return data.json()
         })
         .then(res => {
-          /*
           if(!!res.id){
             sessionStorage.id = res.id;
             sessionStorage.name = res.name;
@@ -34,7 +32,6 @@ let GetUser = (e) => {
           } else {
             console.log('form is invalid')
           }
-          */
         })
         .catch(err => console.log(err))
         e.target.reset();
