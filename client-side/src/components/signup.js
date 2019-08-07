@@ -18,12 +18,13 @@ let CreateUser = (e) => {
           sessionStorage.img = reader.result
         }
 
+        /*
         if(sessionStorage.img == ''){
           reader.readAsDataURL(image.files[0])
         } else {
           sessionStorage.img = ''
         }
-
+*/
         fetch('/signup', {
           method: "POST",
           headers: {

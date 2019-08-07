@@ -16,10 +16,12 @@ class App extends Component {
   }
 
 componentDidMount(){
-  let socketObj = new WebSocket('ws://localhost:5000');
+  let socketObj = new WebSocket('ws://localhost:5001');
 
-  this.setState({
-    socket: socketObj
+  socketObj.addEventListener('open', (e) => {
+    this.setState({
+      socket: socketObj
+    })
   })
 }
 

@@ -1,3 +1,4 @@
 server/node_modules
 package-lock.json
 client-side/node_modules
+server/config.js
